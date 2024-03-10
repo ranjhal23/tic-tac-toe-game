@@ -89,3 +89,4 @@ function checkGameOver() {
         newGameBtn.classList.add("active");
     }
 }
+newGameBtn.addEventListener("click", initialize);
