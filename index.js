@@ -19,10 +19,8 @@ function initialize() {
     // Set Current Player to X 
     currentPlayer = 'X';
     gameInfo.textContent = `Current Player: ${currentPlayer}`;
-
     // Empty Kar Do Boxes 
     gameGrid = ["", "", "", "", "", "", "", "", ""]
-
     // Make Boxes Empty
     boxes.forEach((box,index) => {
         box.textContent = "";
@@ -56,7 +54,8 @@ function swapTurns() {
 function checkGameOver() {
     let winner = "";
     winningPositions.forEach((position) => {
-        if ((gameGrid[position[0]] !== "" || gameGrid[position[1]] !== "" || gameGrid[position[2]] !== "") && (gameGrid[position[0]] === gameGrid[position[1]]) && (gameGrid[position[1]] === gameGrid[position[2]])) {
+        if ((gameGrid[position[0]] !== "" || gameGrid[position[1]] !== "" || gameGrid[position[2]] !== "") 
+        && (gameGrid[position[0]] === gameGrid[position[1]]) && (gameGrid[position[1]] === gameGrid[position[2]])) {
             boxes.forEach((box) => {
                 box.style.pointerEvents = "none";
             });
@@ -68,14 +67,11 @@ function checkGameOver() {
             boxes[position[2]].classList.add("win");
         }
     });
-
     if (winner !== "") {
         gameInfo.textContent = `Winner is - ${winner}`;
         newGameBtn.classList.add("active");
         return;
     }
-
-
     // Here is not winner yet Check for tie
     let fillCount = 0;
     gameGrid.forEach((box) => {
